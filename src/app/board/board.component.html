@@ -1,0 +1,14 @@
+<h1>Current player: {{player}}</h1>
+<button nbButton outline status="danger" (click)="newGame()">Start a new game</button>
+
+<!-- If the value on the right side of *ngIf evaluates to true OR if we want to be precise, if the value in right side
+can be COARCED TO A TRUTHY VALUE, that element would be rendered. -->
+<h2 *ngIf="winner">Player {{winner}} wins the game!</h2>
+
+<main>
+  <app-square
+    *ngFor="let square of squares;let i = index"
+    [value]="square"
+    (click)="makeMove(i)"
+  ></app-square>
+</main>
